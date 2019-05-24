@@ -9,3 +9,7 @@
 </template>
 
 <style src="./css/app.css"></style>
+
+<script>
+const axios = require('axios')
+</script>
