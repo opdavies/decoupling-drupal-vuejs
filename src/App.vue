@@ -26,9 +26,7 @@ export default {
   mounted () {
     const baseUrl = 'http://drupaltestcamp.docksal'
 
-    axios.get(`${baseUrl}/jsonapi/node/session`, { params: {
-      'filter[field_session_status][value]': 'accepted'
-    } })
+    axios.get(`${baseUrl}/jsonapi/node/session`)
       .then(({ data }) => {
         this.loaded = true
         this.sessions = data.data
