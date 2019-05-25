@@ -1,25 +1,21 @@
 <template>
   <div id="app" class="antialiased min-h-screen font-sans bg-gray-100 text-black p-12">
-    <div class="max-w-5xl mx-auto">
-      <h1 class="text-4xl font-semibold mb-2">Sessions</h1>
-
-      <div v-if="!sessions.length == 0" class="bg-white p-6 rounded-lg border">
-        <ul class="-mb-3">
-          <li v-for="session in sessions" :key="session.attributes.drupal_internal__nid" class="mb-3">
-            {{ session.attributes.title }}
-          </li>
-        </ul>
-      </div>
-    </div>
+    <accepted-sessions-list :sessions="sessions" />
   </div>
 </template>
 
 <style src="./css/app.css"></style>
 
 <script>
+import AcceptedSessionsList from '@/components/AcceptedSessionsList'
+
 const axios = require('axios')
 
-module.exports = {
+export default {
+  components: {
+    AcceptedSessionsList
+  },
+
   data () {
     return {
       loaded: false,
