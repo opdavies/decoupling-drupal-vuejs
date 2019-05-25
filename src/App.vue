@@ -27,7 +27,7 @@ module.exports = {
     }
   },
 
-  created () {
+  mounted () {
     const baseUrl = 'http://drupaltestcamp.docksal'
 
     axios.get(`${baseUrl}/jsonapi/node/session`, { params: {
