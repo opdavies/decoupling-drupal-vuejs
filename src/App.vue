@@ -3,7 +3,7 @@
     <div class="max-w-5xl mx-auto">
       <h1 class="text-4xl font-semibold mb-2">Sessions</h1>
 
-      <div v-if="sessions" class="bg-white p-6 rounded-lg border">
+      <div v-if="!sessions.length == 0" class="bg-white p-6 rounded-lg border">
         <ul class="-mb-3">
           <li v-for="session in sessions" :key="session.attributes.drupal_internal__nid" class="mb-3">
             {{ session.attributes.title }}
@@ -22,6 +22,7 @@ const axios = require('axios')
 module.exports = {
   data () {
     return {
+      loaded: false,
       sessions: []
     }
   },
@@ -29,8 +30,11 @@ module.exports = {
   created () {
     const baseUrl = 'http://drupaltestcamp.docksal'
 
-    axios.get(`${baseUrl}/jsonapi/node/session`)
+    axios.get(`${baseUrl}/jsonapi/node/session`, { params: {
+      'filter[field_session_status][value]': 'accepted'
+    } })
       .then(({ data }) => {
+        this.loaded = true
         this.sessions = data.data
       })
   }
