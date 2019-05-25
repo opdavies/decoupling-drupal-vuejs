@@ -4,8 +4,8 @@
 
     <div v-if="!acceptedSessions.length == 0" class="bg-white p-6 rounded-lg border">
       <ul class="-mb-3">
-        <li v-for="session in acceptedSessions" :key="session.attributes.drupal_internal__nid" class="mb-3">
-          {{ session.attributes.title }}
+        <li v-for="{ attributes } in acceptedSessions" :key="attributes.drupal_internal__nid" class="mb-3">
+          {{ attributes.title }}
         </li>
       </ul>
     </div>
