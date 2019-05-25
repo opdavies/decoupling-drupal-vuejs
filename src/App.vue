@@ -1,6 +1,8 @@
 <template>
   <div id="app" class="antialiased min-h-screen font-sans bg-gray-100 text-black p-12">
-    <accepted-sessions-list :sessions="sortedSessions" />
+    <div class="w-full max-w-2xl mx-auto">
+      <accepted-sessions-list :sessions="sortedSessions" />
+    </div>
   </div>
 </template>
 

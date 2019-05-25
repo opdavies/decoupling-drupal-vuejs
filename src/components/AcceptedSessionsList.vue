@@ -1,5 +1,5 @@
 <template>
-  <div class="max-w-5xl mx-auto">
+  <div>
     <h1 class="text-4xl font-semibold mb-2">Sessions</h1>
 
     <div v-if="!acceptedSessions.length == 0" class="bg-white p-6 rounded-lg border">
