@@ -18,7 +18,7 @@ import _ from 'lodash'
 export default {
   props: {
     sessions: {
-      type: Array,
+      type: Object,
       required: true
     }
   },
