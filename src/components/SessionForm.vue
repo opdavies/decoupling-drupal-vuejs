@@ -27,17 +27,45 @@ export default {
       form: {
         body: '',
         title: '',
-        field_session_status: 'accepted'
+        field_session_status: 'accepted',
+        field_session_type: 'full',
       }
     }
   },
 
   methods: {
     submit () {
-      this.$emit('submit', _.clone(this.form))
+      const uuid = '11dad4c2-baa8-4fb2-97c6-12e1ce925806' // User 1
 
-      this.form.body = ''
-      this.form.title = ''
+      const data = {
+        type: 'node--session',
+        attributes: this.form,
+        relationships: {
+          "field_speakers": {
+            "data": {
+              "type": "user--user",
+              "id": uuid
+            }
+          },
+        }
+      }
+
+      axios({
+        method: 'post',
+        url: 'http://drupaltestcamp.docksal/jsonapi/node/session',
+        data: { data },
+        headers: {
+          'Accept': 'application/vnd.api+json',
+          'Content-Type': 'application/vnd.api+json',
+        }
+      })
+        .then(({ data }) => {
+          this.form.body = ''
+          this.form.title = ''
+        })
+        .catch(function (error) {
+          console.log(error)
+        });
     }
   }
 }
