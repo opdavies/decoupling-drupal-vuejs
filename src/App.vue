@@ -2,6 +2,7 @@
   <div id="app" class="antialiased min-h-screen font-sans bg-gray-100 text-black p-12">
     <div class="w-full max-w-2xl mx-auto">
       <accepted-sessions-list :sessions="sortedSessions" />
+      <session-form></session-form>
     </div>
   </div>
 </template>
@@ -11,12 +12,14 @@
 <script>
 import _ from 'lodash'
 import AcceptedSessionsList from '@/components/AcceptedSessionsList'
+import SessionForm from '@/components/SessionForm'
 
 const axios = require('axios')
 
 export default {
   components: {
-    AcceptedSessionsList
+    AcceptedSessionsList,
+    SessionForm
   },
 
   data () {
