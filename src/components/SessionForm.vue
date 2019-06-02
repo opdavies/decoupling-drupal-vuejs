@@ -35,6 +35,9 @@ export default {
   methods: {
     submit () {
       this.$emit('submit', _.clone(this.form))
+
+      this.form.body = ''
+      this.form.title = ''
     }
   }
 }
