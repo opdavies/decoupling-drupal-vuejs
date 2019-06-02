@@ -2,7 +2,7 @@
   <div id="app" class="antialiased min-h-screen font-sans bg-gray-100 text-black p-12">
     <div class="w-full max-w-2xl mx-auto">
       <accepted-sessions-list :sessions="sortedSessions" />
-      <session-form></session-form>
+      <session-form @submit="addSession($event)"></session-form>
     </div>
   </div>
 </template>
@@ -37,6 +37,12 @@ export default {
         this.loaded = true
         this.sessions = data.data
       })
+  },
+
+  methods: {
+    addSession: function (attributes) {
+      this.sessions.push({attributes})
+    }
   },
 
   computed: {
