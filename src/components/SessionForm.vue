@@ -2,17 +2,9 @@
   <section class="mt-8">
     <h3 class="text-2xl font-semibold mb-4">Submit a Session</h3>
 
-    <div v-if="messages.length" class="bg-green-100 border border-green-300 p-4 mb-6">
-      <ul class="list-disc list-inside ml-3">
-        <li v-for="message in messages" :key="message">{{ message }}</li>
-      </ul>
-    </div>
+    <session-form-message :messages="messages" class="bg-green-100 border-green-300"></session-form-message>
 
-    <div v-if="errors.length" class="bg-red-100 border border-red-300 p-4 mb-6">
-      <ul class="list-disc list-inside ml-3">
-        <li v-for="error in errors" :key="error.detail">{{ error.detail }}</li>
-      </ul>
-    </div>
+    <session-form-message :messages="errors" class="bg-red-100 border-red-300"></session-form-message>
 
     <form action="" @submit.prevent="submit">
       <label class="block mb-4">
@@ -32,8 +24,14 @@
 
 <script>
 import axios from 'axios'
+import _ from 'lodash'
+import SessionFormMessage from '@/components/SessionFormMessage'
 
 export default {
+  components: {
+    SessionFormMessage
+  },
+
   data () {
     return {
       errors: [],
@@ -83,7 +81,7 @@ export default {
           this.form.title = ''
         })
         .catch(error => {
-          this.errors = error.response.data.errors || []
+          this.errors = _(error.response.data.errors).map('detail').value()
         })
     }
   }
