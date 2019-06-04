@@ -33,9 +33,9 @@ export default {
       errors: [],
       form: {
         body: '',
-        title: '',
         field_session_status: 'accepted',
         field_session_type: 'full',
+        title: ''
       }
     }
   },
