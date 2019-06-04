@@ -4,7 +4,7 @@
 
     <div v-if="errors.length" class="bg-red-100 border border-red-300 p-4 mb-6">
       <ul class="list-disc list-inside ml-3">
-        <li v-for="error, i in errors" :key="i">{{ error.detail }}</li>
+        <li v-for="error in errors" :key="error.detail">{{ error.detail }}</li>
       </ul>
     </div>
 
@@ -48,16 +48,16 @@ export default {
         type: 'node--session',
         attributes: this.form,
         relationships: {
-          "field_speakers": {
-            "data": {
-              "type": "user--user",
-              "id": uuid
+          'field_speakers': {
+            'data': {
+              'id': uuid,
+              'type': 'user--user'
             }
-          },
+          }
         }
       }
 
-      const baseUrl = 'http://drupaltestcamp.docksal';
+      const baseUrl = 'http://drupaltestcamp.docksal'
 
       axios({
         method: 'post',
@@ -65,7 +65,7 @@ export default {
         data: { data },
         headers: {
           'Accept': 'application/vnd.api+json',
-          'Content-Type': 'application/vnd.api+json',
+          'Content-Type': 'application/vnd.api+json'
         }
       })
         .then(response => {
