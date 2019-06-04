@@ -68,9 +68,10 @@ export default {
           'Content-Type': 'application/vnd.api+json',
         }
       })
-        .then(({ data }) => {
+        .then(response => {
           this.form.body = ''
           this.form.title = ''
+        })
         .catch(error => {
           this.errors = error.response.data.errors || []
         })
