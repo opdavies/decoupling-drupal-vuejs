@@ -23,9 +23,15 @@ export default {
 
   computed: {
     acceptedSessions: function () {
-      return this.sessions.filter(session => {
-        return session.attributes.field_session_status === 'accepted'
-      }).value()
+      return this.sessions
+        .filter(session => this.isAccepted(session))
+        .value()
+    }
+  },
+
+  methods: {
+    isAccepted: function (session) {
+      return session.attributes.field_session_status === 'accepted'
     }
   }
 }
