@@ -7,7 +7,7 @@
   </div>
 </template>
 
-<style src="./css/app.css"></style>
+<style src="./assets/css/app.css"></style>
 
 <script>
 import _ from 'lodash'
