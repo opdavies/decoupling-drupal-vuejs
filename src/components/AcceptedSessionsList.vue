@@ -30,8 +30,8 @@ export default {
   },
 
   methods: {
-    isAccepted: function (session) {
-      return session.attributes.field_session_status === 'accepted'
+    isAccepted: function ({ attributes }) {
+      return attributes.field_session_status === 'accepted'
     }
   }
 }
