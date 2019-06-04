@@ -76,6 +76,7 @@ export default {
         .then(({ data }) => {
           const title = data.data.attributes.title
           this.messages.push(`Session ${title} has been created.`)
+          this.errors = []
 
           this.form.body = ''
           this.form.title = ''
