@@ -84,12 +84,14 @@ export default {
         .then(({ data }) => {
           const title = data.data.attributes.title
           this.messages.push(`Session ${title} has been created.`)
-          this.errors = []
 
           this.$emit('submitted', data.data)
 
           this.form.body = ''
           this.form.title = ''
+
+          this.errors = []
+          this.messages = []
         })
         .catch(error => {
           this.errors = _(error.response.data.errors).map('detail').value()
