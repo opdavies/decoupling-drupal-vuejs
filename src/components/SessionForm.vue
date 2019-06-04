@@ -69,7 +69,7 @@ export default {
         }
       }
 
-      const baseUrl = 'http://drupaltestcamp.docksal'
+      const baseUrl = process.env.VUE_APP_DRUPAL_URL
 
       axios({
         method: 'post',

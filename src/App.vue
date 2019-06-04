@@ -30,7 +30,7 @@ export default {
   },
 
   mounted () {
-    const baseUrl = 'http://drupaltestcamp.docksal'
+    const baseUrl = process.env.VUE_APP_DRUPAL_URL
 
     axios.get(`${baseUrl}/jsonapi/node/session`)
       .then(({ data }) => {
