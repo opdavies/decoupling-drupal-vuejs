@@ -47,7 +47,8 @@ export default {
 
   methods: {
     submit () {
-      const uuid = '11dad4c2-baa8-4fb2-97c6-12e1ce925806' // User 1
+      const adminUuid = '11dad4c2-baa8-4fb2-97c6-12e1ce925806'
+      const apiUuid = '63936126-87cd-4166-9cb4-63b61a210632'
 
       const data = {
         type: 'node--session',
@@ -55,7 +56,13 @@ export default {
         relationships: {
           'field_speakers': {
             'data': {
-              'id': uuid,
+              'id': adminUuid,
+              'type': 'user--user'
+            }
+          },
+          'uid': {
+            'data': {
+              'id': apiUuid,
               'type': 'user--user'
             }
           }
@@ -70,6 +77,7 @@ export default {
         data: { data },
         headers: {
           'Accept': 'application/vnd.api+json',
+          'Authorization': 'Basic YXBpOmFwaQ==',
           'Content-Type': 'application/vnd.api+json'
         }
       })
