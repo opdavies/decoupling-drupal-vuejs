@@ -57,9 +57,11 @@ export default {
         }
       }
 
+      const baseUrl = 'http://drupaltestcamp.docksal';
+
       axios({
         method: 'post',
-        url: 'http://drupaltestcamp.docksal/jsonapi/node/session',
+        url: `${baseUrl}/jsonapi/node/session`,
         data: { data },
         headers: {
           'Accept': 'application/vnd.api+json',
