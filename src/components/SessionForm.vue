@@ -2,6 +2,12 @@
   <section class="mt-8">
     <h3 class="text-2xl font-semibold mb-4">Submit a Session</h3>
 
+    <div v-if="messages.length" class="bg-green-100 border border-green-300 p-4 mb-6">
+      <ul class="list-disc list-inside ml-3">
+        <li v-for="message in messages" :key="message">{{ message }}</li>
+      </ul>
+    </div>
+
     <div v-if="errors.length" class="bg-red-100 border border-red-300 p-4 mb-6">
       <ul class="list-disc list-inside ml-3">
         <li v-for="error in errors" :key="error.detail">{{ error.detail }}</li>
@@ -36,7 +42,8 @@ export default {
         field_session_status: 'accepted',
         field_session_type: 'full',
         title: ''
-      }
+      },
+      messages: []
     }
   },
 
@@ -68,7 +75,10 @@ export default {
           'Content-Type': 'application/vnd.api+json'
         }
       })
-        .then(response => {
+        .then(({ data }) => {
+          const title = data.data.attributes.title
+          this.messages.push(`Session ${title} has been created.`)
+
           this.form.body = ''
           this.form.title = ''
         })
