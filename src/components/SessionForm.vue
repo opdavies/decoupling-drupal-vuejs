@@ -2,6 +2,12 @@
   <section class="mt-8">
     <h3 class="text-2xl font-semibold mb-4">Submit a Session</h3>
 
+    <div v-if="errors.length" class="bg-red-100 border border-red-300 p-4 mb-6">
+      <ul class="list-disc list-inside ml-3">
+        <li v-for="error, i in errors" :key="i">{{ error.detail }}</li>
+      </ul>
+    </div>
+
     <form action="" @submit.prevent="submit">
       <label class="block mb-4">
         Title
@@ -24,6 +30,7 @@ import axios from 'axios'
 export default {
   data () {
     return {
+      errors: [],
       form: {
         body: '',
         title: '',
@@ -62,10 +69,9 @@ export default {
         .then(({ data }) => {
           this.form.body = ''
           this.form.title = ''
+        .catch(error => {
+          this.errors = error.response.data.errors || []
         })
-        .catch(function (error) {
-          console.log(error)
-        });
     }
   }
 }
