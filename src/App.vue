@@ -41,9 +41,7 @@ export default {
 
   computed: {
     sortedSessions: function () {
-      return _(this.sessions).sortBy(session => {
-        return session.attributes.title
-      })
+      return _(this.sessions).sortBy(session => session.attributes.title)
     }
   }
 }
