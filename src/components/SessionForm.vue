@@ -86,6 +86,8 @@ export default {
           this.messages.push(`Session ${title} has been created.`)
           this.errors = []
 
+          this.$emit('submitted', data.data)
+
           this.form.body = ''
           this.form.title = ''
         })
