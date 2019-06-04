@@ -2,7 +2,7 @@
   <div>
     <h1 class="text-4xl font-semibold mb-2">Sessions</h1>
 
-    <div v-if="!acceptedSessions.length == 0" class="bg-white p-6 rounded-lg border">
+    <div v-if="acceptedSessions.length" class="bg-white p-6 rounded-lg border">
       <ul class="-mb-3">
         <li v-for="{ attributes } in acceptedSessions" :key="attributes.drupal_internal__nid" class="mb-3">
           {{ attributes.title }}
