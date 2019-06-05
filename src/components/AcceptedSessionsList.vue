@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="text-4xl font-semibold mb-2">Sessions</h1>
+    <h1 class="text-4xl mb-2">Sessions</h1>
 
     <div v-if="acceptedSessions.length" class="bg-white p-6 rounded-lg border">
       <ul class="-mb-3">

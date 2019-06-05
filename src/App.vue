@@ -54,6 +54,11 @@ export default {
 <style type="postcss">
 @tailwind base;
 
+h1,
+h2 {
+  @apply font-semibold
+}
+
 input,
 textarea {
   @apply w-full border border-gray-400 p-2 mt-1

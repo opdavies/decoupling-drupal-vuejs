@@ -1,6 +1,6 @@
 <template>
   <section class="mt-8">
-    <h3 class="text-2xl font-semibold mb-4">Submit a Session</h3>
+    <h2 class="text-2xl mb-4">Submit a Session</h2>
 
     <session-form-message :messages="messages" class="bg-green-100 border-green-300"></session-form-message>
 
