@@ -7,3 +7,5 @@ $databases['default']['default'] = [
   'username' => getenv('MYSQL_USER'),
   'password' => getenv('MYSQL_PASSWORD'),
 ];
+
+$settings['container_yamls'][] = __DIR__ . '/services.docksal.yml';
