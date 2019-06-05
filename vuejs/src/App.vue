@@ -2,7 +2,7 @@
   <div id="app" class="antialiased min-h-screen font-sans bg-gray-100 text-black p-12">
     <div class="w-full max-w-2xl mx-auto">
       <accepted-sessions-list :sessions="sortedSessions" />
-      <session-form @submitted="addSession($event)"></session-form>
+      <session-form @submitted="addSession($event)" />
     </div>
   </div>
 </template>
