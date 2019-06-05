@@ -1,0 +1,33 @@
+test:
+  image: php:7.2
+
+  cache:
+    paths:
+      - vendor/
+
+  before_script:
+    - apt-get update -yqq
+    - apt-get install git wget unzip zip -yqq
+
+    # Add additonal extensions that are required by Drupal.
+    - apt-get install libpng-dev -y
+    - docker-php-ext-install gd
+
+    # Install Composer.
+    - wget https://composer.github.io/installer.sig -O - -q | tr -d '\n' > installer.sig
+    - php -r "copy('https://getcomposer.org/installer', 'composer-setup.php');"
+    - php -r "if (hash_file('SHA384', 'composer-setup.php') === file_get_contents('installer.sig')) { echo 'Installer verified'; } else { echo 'Installer corrupt'; unlink('composer-setup.php'); } echo PHP_EOL;"
+    - php composer-setup.php
+    - php -r "unlink('composer-setup.php'); unlink('installer.sig');"
+    - php composer.phar install
+
+    # Start a server for web tests.
+    - php -S localhost:9000 -t web 2>&1 &
+
+  variables:
+    SIMPLETEST_BASE_URL: http://localhost:9000
+    SIMPLETEST_DB: 'sqlite://localhost:9000//tmp/test.sqlite'
+
+  script:
+    - cd web
+    - ../vendor/bin/phpunit -c core modules/custom

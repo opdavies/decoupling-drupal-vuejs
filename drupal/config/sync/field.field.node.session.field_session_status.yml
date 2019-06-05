@@ -1,0 +1,25 @@
+uuid: 7e18b675-1315-4223-875f-242a675792ce
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_session_status
+    - node.type.session
+  module:
+    - options
+_core:
+  default_config_hash: _doNXwclPE2b0N8R7IqGkwnCaHU-dGWtMlmr6OiI968
+id: node.session.field_session_status
+field_name: field_session_status
+entity_type: node
+bundle: session
+label: Status
+description: ''
+required: false
+translatable: false
+default_value:
+  -
+    value: submitted
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,15 @@
+name: 'DTC Sessions'
+type: module
+core: 8.x
+dependencies:
+  - comment
+  - field
+  - image
+  - menu_ui
+  - node
+  - options
+  - path
+  - text
+  - user
+  - views
+version: 8.x-1.5

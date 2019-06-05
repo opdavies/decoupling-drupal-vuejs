@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+
+## Initialise the project
+##
+## Usage: fin init
+
+fin start
+
+fin run composer install
+
+fin drush site:install -y
+
+# Reset the site uuid.
+fin drush config:set -y system.site uuid de7ba5dc-5795-4cb5-9d38-1edcc27be491
+
+# Delete the uuid for shortcut.set.default so that config will import.
+fin drush config:delete -y shortcut.set.default uuid
+
+# Import config.
+fin drush config:import -y --source=../config/sync
+
+fin drush php:eval '\Drupal::service("Drupal\dtc_import\Service\Importer\CsvSpeakerImporter")->import()'
+fin drush php:eval '\Drupal::service("Drupal\dtc_import\Service\Importer\CsvSessionImporter")->import()'
+
+fin drush user:create api --password=api
+fin drush user:role:add api_user api
+
+fin uli

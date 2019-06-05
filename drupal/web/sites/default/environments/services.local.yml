@@ -1,0 +1,9 @@
+parameters:
+  cors.config:
+    enabled: true
+    allowedHeaders: ['x-csrf-token','authorization','content-type','accept','origin','x-requested-with', 'access-control-allow-origin','x-allowed-header','*']
+    allowedMethods: ['*']
+    allowedOrigins: ['http://localhost:8080']
+    exposedHeaders: true
+    maxAge: false
+    supportsCredentials: true

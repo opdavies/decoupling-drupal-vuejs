@@ -1,0 +1,32 @@
+uuid: a388de30-7259-42e6-8812-8b82d3d2e659
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+    - options
+_core:
+  default_config_hash: Gd_YS0Xb_NQDXKPDvTaJrFbI_drhL_jf8V0K0TNQm3s
+id: node.field_session_type
+field_name: field_session_type
+entity_type: node
+type: list_string
+settings:
+  allowed_values:
+    -
+      value: keynote
+      label: Keynote
+    -
+      value: full
+      label: 'Full talk (30-45 minutes)'
+    -
+      value: lightning
+      label: 'Lightning talk (10-15 minutes)'
+  allowed_values_function: ''
+module: options
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

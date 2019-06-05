@@ -1,0 +1,23 @@
+uuid: 32da9f9c-4e8f-4d31-b44a-39c2dfc12cdd
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.node.field_session_type
+    - node.type.session
+  module:
+    - options
+_core:
+  default_config_hash: ikVR2Yk3zj1GeZeZZyv6YX4eCiF9gId6iKGcWLZEFU8
+id: node.session.field_session_type
+field_name: field_session_type
+entity_type: node
+bundle: session
+label: Type
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: list_string

@@ -1,0 +1,24 @@
+uuid: 565c725d-2e06-4757-a25d-274f9133599d
+langcode: en
+status: true
+dependencies:
+  config:
+    - node.type.session
+_core:
+  default_config_hash: AjxaQFfhMIC4poHZiIwt-Gk-83BxWIm6HmAVcPIsZ3s
+id: node.session.promote
+field_name: promote
+entity_type: node
+bundle: session
+label: 'Promoted to front page'
+description: ''
+required: false
+translatable: true
+default_value:
+  -
+    value: 0
+default_value_callback: ''
+settings:
+  on_label: 'On'
+  off_label: 'Off'
+field_type: boolean

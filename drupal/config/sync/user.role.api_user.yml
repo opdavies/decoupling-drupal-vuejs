@@ -1,0 +1,11 @@
+uuid: 25365383-425f-46f4-80b0-1dc15e804a57
+langcode: en
+status: true
+dependencies: {  }
+id: api_user
+label: 'API user'
+weight: 4
+is_admin: null
+permissions:
+  - 'administer nodes'
+  - 'create session content'

@@ -1,0 +1,14 @@
+uuid: be02e26f-d18f-4eb4-b841-aa0e2916ccd6
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.speaker
+  module:
+    - user
+id: user_add_role_action.speaker
+label: 'Add the speaker role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: speaker

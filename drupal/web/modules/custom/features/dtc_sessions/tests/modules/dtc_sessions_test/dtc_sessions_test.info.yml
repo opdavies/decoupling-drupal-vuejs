@@ -1,0 +1,4 @@
+name: DTC Sessions Test
+core: 8.x
+type: module
+hidden: TRUE

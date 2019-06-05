@@ -1,0 +1,9 @@
+services:
+  Drupal\Core\Entity\EntityTypeManagerInterface:
+    alias: entity_type.manager
+
+  Drupal\dtc_import\Service\Importer\CsvSessionImporter:
+    autowire: true
+
+  Drupal\dtc_import\Service\Importer\CsvSpeakerImporter:
+    autowire: true
