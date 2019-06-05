@@ -7,8 +7,6 @@
   </div>
 </template>
 
-<style src="./assets/css/app.css"></style>
-
 <script>
 import _ from 'lodash'
 import AcceptedSessionsList from '@/components/AcceptedSessionsList'
@@ -52,3 +50,11 @@ export default {
   }
 }
 </script>
+
+<style type="postcss">
+@tailwind base;
+
+@tailwind components;
+
+@tailwind utilities;
+</style>
