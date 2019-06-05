@@ -80,22 +80,20 @@ export default {
           'Authorization': 'Basic YXBpOmFwaQ==',
           'Content-Type': 'application/vnd.api+json'
         }
+      }).then(({ data: { data: { attributes } } }) => {
+        const title = attributes.title
+        this.messages.push(`Session ${title} has been created.`)
+
+        this.$emit('submitted', data)
+
+        this.form.body = ''
+        this.form.title = ''
+
+        this.errors = []
+        this.messages = []
+      }).catch(({ response: { data } }) => {
+        this.errors = _(data.errors).map('detail').value()
       })
-        .then(({ data: { data } }) => {
-          const title = data.attributes.title
-          this.messages.push(`Session ${title} has been created.`)
-
-          this.$emit('submitted', data)
-
-          this.form.body = ''
-          this.form.title = ''
-
-          this.errors = []
-          this.messages = []
-        })
-        .catch(({ response: { data } }) => {
-          this.errors = _(data.errors).map('detail').value()
-        })
     }
   }
 }
