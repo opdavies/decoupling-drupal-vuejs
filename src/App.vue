@@ -51,7 +51,7 @@ export default {
 }
 </script>
 
-<style type="postcss">
+<style>
 @tailwind base;
 
 h1,
