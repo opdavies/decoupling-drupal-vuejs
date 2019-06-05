@@ -80,11 +80,11 @@ export default {
           'Authorization': 'Basic YXBpOmFwaQ==',
           'Content-Type': 'application/vnd.api+json'
         }
-      }).then(({ data: { data: { attributes } } }) => {
-        const title = attributes.title
+      }).then(({ data }) => {
+        const title = data.data.attributes.title
         this.messages.push(`Session ${title} has been created.`)
 
-        this.$emit('submitted', data)
+        this.$emit('submitted', data.data)
 
         this.form.body = ''
         this.form.title = ''
