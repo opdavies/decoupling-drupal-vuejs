@@ -1,0 +1,82 @@
+#!/usr/bin/env bash
+
+#: exec_target = cli
+
+## Initialize/reinstall site
+##
+## Usage: fin init-site
+
+# Abort if anything fails
+set -e
+
+#-------------------------- Helper functions --------------------------------
+
+copy_settings_file() {
+  local source="$1"
+  local dest="$2"
+
+  echo "Copying ${dest}..."
+  cp $source $dest
+}
+
+composer_install() {
+  echo "Installing Composer dependencies..."
+  composer install
+}
+
+#-------------------------- END: Helper functions --------------------------------
+
+#-------------------------- END: Functions --------------------------------
+
+init_settings() {
+  copy_settings_file ../files/settings.php ../../web/sites/default
+}
+
+site_install() {
+  composer_install
+
+  echo "Installing Drupal..."
+  drush site:install -y
+}
+
+import_config() {
+  drush config:set -y system.site uuid de7ba5dc-5795-4cb5-9d38-1edcc27be491
+
+  drush config:delete -y shortcut.set.default uuid
+
+  echo "Importing configuration..."
+  drush config:import -y --source=../config/sync
+}
+
+import_content() {
+  echo "Importing speakers from CSV..."
+  drush php:eval '\Drupal::service("Drupal\dtc_import\Service\Importer\CsvSpeakerImporter")->import()'
+
+  echo "Importing sessions from CSV..."
+  drush php:eval '\Drupal::service("Drupal\dtc_import\Service\Importer\CsvSessionImporter")->import()'
+}
+
+setup_users() {
+  echo "Creating the API user..."
+  drush user:create api --password=api
+  drush user:role:add api_user api
+
+  echo "Resetting uuid for the admin user..."
+  drush sql:query "UPDATE users SET uuid = '11dad4c2-baa8-4fb2-97c6-12e1ce925806' WHERE uid = 1"
+
+  echo "Resetting uuid for the API user..."
+  drush sql:query "UPDATE users SET uuid = '63936126-87cd-4166-9cb4-63b61a210632' WHERE uid = 7"
+}
+
+#-------------------------- END: Functions --------------------------------
+
+#-------------------------- Execution --------------------------------
+
+site_install
+import_config
+import_content
+setup_users
+
+echo -e "Open ${yellow}http://${VIRTUAL_HOST}${NC} in your browser to verify the setup."
+
+#-------------------------- END: Execution --------------------------------

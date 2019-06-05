@@ -1,37 +1,37 @@
 #!/usr/bin/env bash
 
-## Initialise the project
+## Initialize stack and site (full reset)
 ##
 ## Usage: fin init
 
-fin start
+# Abort if anything fails
+set -e
 
-fin run composer install
+#-------------------------- Helper functions --------------------------------
 
-# Overwrite settings.php.
-cp ../files/settings.php ../../web/sites/default
+# Console colors
+red='\033[0;31m'
+green='\033[0;32m'
+green_bg='\033[1;97;42m'
+yellow='\033[1;33m'
+NC='\033[0m'
 
-fin drush site:install -y
+echo-red () { echo -e "${red}$1${NC}"; }
+echo-green () { echo -e "${green}$1${NC}"; }
+echo-green-bg () { echo -e "${green_bg}$1${NC}"; }
+echo-yellow () { echo -e "${yellow}$1${NC}"; }
 
-# Reset the site uuid.
-fin drush config:set -y system.site uuid de7ba5dc-5795-4cb5-9d38-1edcc27be491
+#-------------------------- Execution --------------------------------
 
-# Delete the uuid for shortcut.set.default so that config will import.
-fin drush config:delete -y shortcut.set.default uuid
+# Stack initialization
+echo -e "${green_bg} Step 1 ${NC}${green} Initializing stack...${NC}"
+fin project reset -f
 
-# Import config.
-fin drush config:import -y --source=../config/sync
+# Site initialization
+echo -e "${green_bg} Step 2 ${NC}${green} Initializing site...${NC}"
+# This runs inside cli using http://docs.docksal.io/en/v1.4.0/fin/custom-commands/#executing-commands-inside-cli
+fin init-site
 
-fin drush php:eval '\Drupal::service("Drupal\dtc_import\Service\Importer\CsvSpeakerImporter")->import()'
-fin drush php:eval '\Drupal::service("Drupal\dtc_import\Service\Importer\CsvSessionImporter")->import()'
+echo -e "${green_bg} DONE! ${NC}${green} Completed all initialization steps.${NC}"
 
-fin drush user:create api --password=api
-fin drush user:role:add api_user api
-
-# Set uuid for admin user.
-fin drush sql:query "UPDATE users SET uuid = '11dad4c2-baa8-4fb2-97c6-12e1ce925806' WHERE uid = 1"
-
-# Set uuid for API user.
-fin drush sql:query "UPDATE users SET uuid = '63936126-87cd-4166-9cb4-63b61a210632' WHERE uid = 7"
-
-fin uli
+#-------------------------- END: Execution --------------------------------
