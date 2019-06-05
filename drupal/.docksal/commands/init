@@ -25,4 +25,10 @@ fin drush php:eval '\Drupal::service("Drupal\dtc_import\Service\Importer\CsvSess
 fin drush user:create api --password=api
 fin drush user:role:add api_user api
 
+# Set uuid for admin user.
+fin drush sql:query "UPDATE users SET uuid = '11dad4c2-baa8-4fb2-97c6-12e1ce925806' WHERE uid = 1"
+
+# Set uuid for API user.
+fin drush sql:query "UPDATE users SET uuid = '63936126-87cd-4166-9cb4-63b61a210632' WHERE uid = 7"
+
 fin uli
