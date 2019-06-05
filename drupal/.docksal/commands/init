@@ -8,6 +8,9 @@ fin start
 
 fin run composer install
 
+# Overwrite settings.php.
+cp ../files/settings.php ../../web/sites/default
+
 fin drush site:install -y
 
 # Reset the site uuid.
