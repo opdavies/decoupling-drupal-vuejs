@@ -81,11 +81,11 @@ export default {
           'Content-Type': 'application/vnd.api+json'
         }
       })
-        .then(({ data }) => {
-          const title = data.data.attributes.title
+        .then(({ data: { data } }) => {
+          const title = data.attributes.title
           this.messages.push(`Session ${title} has been created.`)
 
-          this.$emit('submitted', data.data)
+          this.$emit('submitted', data)
 
           this.form.body = ''
           this.form.title = ''
@@ -93,8 +93,8 @@ export default {
           this.errors = []
           this.messages = []
         })
-        .catch(error => {
-          this.errors = _(error.response.data.errors).map('detail').value()
+        .catch(({ response: { data } }) => {
+          this.errors = _(data.errors).map('detail').value()
         })
     }
   }
