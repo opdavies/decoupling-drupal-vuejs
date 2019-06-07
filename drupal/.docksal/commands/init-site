@@ -66,6 +66,9 @@ setup_users() {
 
   echo "Resetting uuid for the API user..."
   drush sql:query "UPDATE users SET uuid = '63936126-87cd-4166-9cb4-63b61a210632' WHERE uid = 7"
+
+  echo "Rebuilding cache..."
+  drush cache:rebuild
 }
 
 #-------------------------- END: Functions --------------------------------
