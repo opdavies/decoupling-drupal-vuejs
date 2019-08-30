@@ -8,13 +8,16 @@
 </template>
 
 <script>
-import qs from 'qs'
 import AcceptedSessionsList from '@/components/AcceptedSessionsList'
+import qs from 'qs'
+import saveState from 'vue-save-state'
 import SessionForm from '@/components/SessionForm'
 
 const axios = require('axios')
 
 export default {
+  mixins: [saveState],
+
   components: {
     AcceptedSessionsList,
     SessionForm
@@ -43,8 +46,14 @@ export default {
   },
 
   methods: {
-    addSession: function (session) {
+    addSession (session) {
       this.sessions.push(session)
+    },
+
+    getSaveStateConfig () {
+      return {
+        cacheKey: 'app'
+      }
     }
   }
 }
