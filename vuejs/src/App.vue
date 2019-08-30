@@ -2,7 +2,7 @@
   <div id="app" class="antialiased min-h-screen font-sans bg-gray-100 text-black p-12">
     <div class="w-full max-w-2xl mx-auto">
       <accepted-sessions-list :sessions="sessions" />
-      <session-form @submitted="addSession($event)" />
+      <session-form />
     </div>
   </div>
 </template>
@@ -46,10 +46,6 @@ export default {
   },
 
   methods: {
-    addSession (session) {
-      this.sessions.push(session)
-    },
-
     getSaveStateConfig () {
       return {
         cacheKey: 'app'

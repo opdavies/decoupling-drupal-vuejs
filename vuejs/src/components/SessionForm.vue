@@ -37,7 +37,7 @@ export default {
       errors: [],
       form: {
         body: '',
-        field_session_status: 'accepted',
+        field_session_status: 'submitted',
         field_session_type: 'full',
         title: ''
       },
@@ -86,8 +86,6 @@ export default {
 
         const title = data.data.attributes.title
         this.messages.push(`Session ${title} has been created.`)
-
-        this.$emit('submitted', data.data)
 
         this.form.body = ''
         this.form.title = ''
