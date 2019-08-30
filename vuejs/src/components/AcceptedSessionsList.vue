@@ -4,7 +4,7 @@
 
     <div v-if="sessions.length" class="bg-white p-6 rounded-lg border">
       <ul class="-mb-3">
-        <li v-for="{ attributes } in sessions" :key="attributes.drupal_internal__nid" class="mb-3">
+        <li v-for="{ attributes } in sortedSessions" :key="attributes.drupal_internal__nid" class="mb-3">
           {{ attributes.title }}
         </li>
       </ul>
@@ -13,11 +13,19 @@
 </template>
 
 <script>
+import sortBy from 'lodash/sortBy'
+
 export default {
   props: {
     sessions: {
-      type: Object,
+      type: Array,
       required: true
+    }
+  },
+
+  computed: {
+    sortedSessions: function () {
+      return sortBy(this.sessions, 'attributes.title')
     }
   }
 }

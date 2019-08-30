@@ -1,14 +1,13 @@
 <template>
   <div id="app" class="antialiased min-h-screen font-sans bg-gray-100 text-black p-12">
     <div class="w-full max-w-2xl mx-auto">
-      <accepted-sessions-list :sessions="sortedSessions" />
+      <accepted-sessions-list :sessions="sessions" />
       <session-form @submitted="addSession($event)" />
     </div>
   </div>
 </template>
 
 <script>
-import _ from 'lodash'
 import qs from 'qs'
 import AcceptedSessionsList from '@/components/AcceptedSessionsList'
 import SessionForm from '@/components/SessionForm'
@@ -46,13 +45,6 @@ export default {
   methods: {
     addSession: function (session) {
       this.sessions.push(session)
-    }
-  },
-
-  computed: {
-    sortedSessions: function () {
-      return _(this.sessions).sortBy(({ attributes }) => attributes.title)
-        .value()
     }
   }
 }
