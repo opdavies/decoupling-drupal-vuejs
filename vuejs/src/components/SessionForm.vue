@@ -23,7 +23,7 @@
 
 <script>
 import axios from 'axios'
-import _ from 'lodash'
+import map from 'lodash/map'
 import SessionFormMessage from '@/components/SessionFormMessage'
 
 export default {
@@ -89,7 +89,7 @@ export default {
         this.form.body = ''
         this.form.title = ''
       }).catch(({ response: { data } }) => {
-        this.errors = _(data.errors).map('detail').value()
+        this.errors = map(data.errors, 'detail')
       })
     }
   }
