@@ -1,23 +1,6 @@
-@tailwind base;
+@import 'tailwindcss/base';
+@import './base.css';
 
-h1,
-h2 {
-  @apply font-semibold
-}
+@import 'tailwindcss/components';
 
-input,
-textarea {
-  @apply mt-1 p-2 w-full border border-gray-400
-}
-
-input[type=submit] {
-  @apply w-full;
-
-  @screen sm {
-    @apply w-auto
-  }
-}
-
-@tailwind components;
-
-@tailwind utilities;
+@import 'tailwindcss/utilities';
