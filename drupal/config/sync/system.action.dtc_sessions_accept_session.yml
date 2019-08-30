@@ -1,0 +1,11 @@
+uuid: 6628c7ca-bb05-487d-8953-1f935f424ccf
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: dtc_sessions_accept_session
+label: 'Accept session'
+type: node
+plugin: dtc_sessions_accept_session
+configuration: {  }

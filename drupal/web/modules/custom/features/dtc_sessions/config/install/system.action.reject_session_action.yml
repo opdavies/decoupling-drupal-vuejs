@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: dtc_sessions_reject_session
+label: 'Reject session'
+type: node
+plugin: dtc_sessions_reject_session
+configuration: {  }

@@ -1,0 +1,10 @@
+langcode: en
+status: true
+dependencies:
+  module:
+    - node
+id: dtc_sessions_accept_session
+label: 'Accept session'
+type: node
+plugin: dtc_sessions_accept_session
+configuration: {  }
