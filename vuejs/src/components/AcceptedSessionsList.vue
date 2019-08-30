@@ -2,9 +2,9 @@
   <div>
     <h1 class="text-4xl mb-2">Sessions</h1>
 
-    <div v-if="acceptedSessions.length" class="bg-white p-6 rounded-lg border">
+    <div v-if="sessions.length" class="bg-white p-6 rounded-lg border">
       <ul class="-mb-3">
-        <li v-for="{ attributes } in acceptedSessions" :key="attributes.drupal_internal__nid" class="mb-3">
+        <li v-for="{ attributes } in sessions" :key="attributes.drupal_internal__nid" class="mb-3">
           {{ attributes.title }}
         </li>
       </ul>
@@ -18,20 +18,6 @@ export default {
     sessions: {
       type: Object,
       required: true
-    }
-  },
-
-  computed: {
-    acceptedSessions: function () {
-      return this.sessions
-        .filter(session => this.isAccepted(session))
-        .value()
-    }
-  },
-
-  methods: {
-    isAccepted: function ({ attributes }) {
-      return attributes.field_session_status === 'accepted'
     }
   }
 }

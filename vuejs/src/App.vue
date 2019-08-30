@@ -32,7 +32,8 @@ export default {
     const baseUrl = process.env.VUE_APP_DRUPAL_URL
 
     const params = qs.stringify({
-      'fields[node--session]': 'title'
+      'fields[node--session]': 'title',
+      'filter[field_session_status]': 'accepted'
     })
 
     axios.get(`${baseUrl}/jsonapi/node/session?${params}`)
@@ -51,6 +52,7 @@ export default {
   computed: {
     sortedSessions: function () {
       return _(this.sessions).sortBy(({ attributes }) => attributes.title)
+        .value()
     }
   }
 }
