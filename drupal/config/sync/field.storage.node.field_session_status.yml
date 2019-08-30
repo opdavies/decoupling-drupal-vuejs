@@ -19,6 +19,9 @@ settings:
     -
       value: accepted
       label: Accepted
+    -
+      value: rejected
+      label: Rejected
   allowed_values_function: ''
 module: options
 locked: false
