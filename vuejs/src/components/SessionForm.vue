@@ -2,9 +2,8 @@
   <section class="mt-8">
     <h2 class="text-2xl mb-4">Submit a Session</h2>
 
-    <session-form-message :messages="messages" class="bg-green-100 border-green-300"></session-form-message>
-
-    <session-form-message :messages="errors" class="bg-red-100 border-red-300"></session-form-message>
+    <SessionFormMessage :messages="messages" class="bg-green-100 border-green-300"/>
+    <SessionFormMessage :messages="errors" class="bg-red-100 border-red-300"/>
 
     <form action="" @submit.prevent="submit">
       <label class="block mb-4">
