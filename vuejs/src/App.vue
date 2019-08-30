@@ -51,28 +51,4 @@ export default {
 }
 </script>
 
-<style>
-@tailwind base;
-
-h1,
-h2 {
-  @apply font-semibold
-}
-
-input,
-textarea {
-  @apply w-full border border-gray-400 p-2 mt-1
-}
-
-input[type=submit] {
-  @apply w-full;
-
-  @screen sm {
-    @apply w-auto
-  }
-}
-
-@tailwind components;
-
-@tailwind utilities;
-</style>
+<style src="./assets/css/tailwind.css"></style>
