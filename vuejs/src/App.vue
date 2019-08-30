@@ -9,11 +9,10 @@
 
 <script>
 import AcceptedSessionsList from '@/components/AcceptedSessionsList'
+import axios from 'axios'
 import qs from 'qs'
 import saveState from 'vue-save-state'
 import SessionForm from '@/components/SessionForm'
-
-const axios = require('axios')
 
 export default {
   mixins: [saveState],
