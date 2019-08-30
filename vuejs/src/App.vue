@@ -9,6 +9,7 @@
 
 <script>
 import _ from 'lodash'
+import qs from 'qs'
 import AcceptedSessionsList from '@/components/AcceptedSessionsList'
 import SessionForm from '@/components/SessionForm'
 
@@ -30,7 +31,11 @@ export default {
   mounted () {
     const baseUrl = process.env.VUE_APP_DRUPAL_URL
 
-    axios.get(`${baseUrl}/jsonapi/node/session`)
+    const params = qs.stringify({
+      'fields[node--session]': 'title'
+    })
+
+    axios.get(`${baseUrl}/jsonapi/node/session?${params}`)
       .then(({ data }) => {
         this.loaded = true
         this.sessions = data.data
