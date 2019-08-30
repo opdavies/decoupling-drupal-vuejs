@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h1 class="text-4xl">Sessions</h1>
+    <h1 class="text-4xl">Accepted Sessions</h1>
 
     <div v-if="sessions.length" class="mt-2 p-6 bg-white rounded-lg border">
       <ul>
