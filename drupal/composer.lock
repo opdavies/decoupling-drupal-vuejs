@@ -5787,16 +5787,16 @@
         },
         {
             "name": "tightenco/collect",
-            "version": "v5.8.18",
+            "version": "v5.8.34",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tightenco/collect.git",
-                "reference": "328a1df987fe08969a31b8db474e1c4847202d46"
+                "reference": "957e430c26c51b65c80acc87896023229dc05a21"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tightenco/collect/zipball/328a1df987fe08969a31b8db474e1c4847202d46",
-                "reference": "328a1df987fe08969a31b8db474e1c4847202d46",
+                "url": "https://api.github.com/repos/tightenco/collect/zipball/957e430c26c51b65c80acc87896023229dc05a21",
+                "reference": "957e430c26c51b65c80acc87896023229dc05a21",
                 "shasum": ""
             },
             "require": {
@@ -5833,7 +5833,7 @@
                 "collection",
                 "laravel"
             ],
-            "time": "2019-05-18T17:03:47+00:00"
+            "time": "2019-07-30T19:16:47+00:00"
         },
         {
             "name": "twig/twig",
