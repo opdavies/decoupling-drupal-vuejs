@@ -7,7 +7,7 @@ h2 {
 
 input,
 textarea {
-  @apply w-full border border-gray-400 p-2 mt-1
+  @apply mt-1 p-2 w-full border border-gray-400
 }
 
 input[type=submit] {

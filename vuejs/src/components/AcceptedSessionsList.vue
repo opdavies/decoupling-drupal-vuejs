@@ -1,10 +1,10 @@
 <template>
   <div>
-    <h1 class="text-4xl mb-2">Sessions</h1>
+    <h1 class="text-4xl">Sessions</h1>
 
-    <div v-if="sessions.length" class="bg-white p-6 rounded-lg border">
-      <ul class="-mb-3">
-        <li v-for="{ attributes } in sortedSessions" :key="attributes.drupal_internal__nid" class="mb-3">
+    <div v-if="sessions.length" class="mt-2 p-6 bg-white rounded-lg border">
+      <ul>
+        <li v-for="{ attributes } in sortedSessions" :key="attributes.drupal_internal__nid" class="mt-3 first:mt-0">
           {{ attributes.title }}
         </li>
       </ul>
