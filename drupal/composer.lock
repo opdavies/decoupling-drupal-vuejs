@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "cd0afb15c74ca0b8adda0cb7f3fa813e",
+    "content-hash": "c16805ab7a0d20791d9e75294ad2de78",
     "packages": [
         {
             "name": "alchemy/zippy",
@@ -5799,16 +5799,16 @@
         },
         {
             "name": "tightenco/collect",
-            "version": "v5.8.34",
+            "version": "v6.0.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/tightenco/collect.git",
-                "reference": "957e430c26c51b65c80acc87896023229dc05a21"
+                "reference": "1793f44a9362b00a271de0776511726d9d952aed"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/tightenco/collect/zipball/957e430c26c51b65c80acc87896023229dc05a21",
-                "reference": "957e430c26c51b65c80acc87896023229dc05a21",
+                "url": "https://api.github.com/repos/tightenco/collect/zipball/1793f44a9362b00a271de0776511726d9d952aed",
+                "reference": "1793f44a9362b00a271de0776511726d9d952aed",
                 "shasum": ""
             },
             "require": {
@@ -5817,7 +5817,7 @@
             },
             "require-dev": {
                 "mockery/mockery": "^1.0",
-                "nesbot/carbon": "^1.26.3",
+                "nesbot/carbon": "^2.23.0",
                 "phpunit/phpunit": "^7.0"
             },
             "type": "library",
@@ -5845,7 +5845,7 @@
                 "collection",
                 "laravel"
             ],
-            "time": "2019-07-30T19:16:47+00:00"
+            "time": "2019-08-30T16:33:17+00:00"
         },
         {
             "name": "twig/twig",
